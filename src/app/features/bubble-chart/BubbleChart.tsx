@@ -1,18 +1,17 @@
+import { useHoverState } from "@/app/hover.contex";
 import { useContainerDimensions } from "@/app/lib/useContainerDimensions";
+import { useAppSelector } from "@/lib/hooks";
+import { selectDME } from "@/lib/reforestation.slice";
 import {
   Chart as ChartJS,
+  Legend,
   LinearScale,
   PointElement,
   Tooltip,
-  Legend,
 } from "chart.js";
-import { isDeepStrictEqual } from "node:util";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Bubble } from "react-chartjs-2";
 import equal from "deep-equal";
-import { useAppSelector } from "@/lib/hooks";
-import { selectDME } from "@/lib/reforestation.slice";
-import { useHoverState } from "@/app/hover.contex";
+import { useEffect, useRef, useState } from "react";
+import { Bubble } from "react-chartjs-2";
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
@@ -47,7 +46,7 @@ function addBubble(bubbles, width, height, r) {
   return bubbles;
 }
 
-function generateNonOverlappingBubbles(
+/* function generateNonOverlappingBubbles(
   count,
   width,
   height,
@@ -62,7 +61,7 @@ function generateNonOverlappingBubbles(
   }
 
   return bubbles;
-}
+} */
 
 function placeNonOverlappingBubbles(data, width, height) {
   let bubbles = [];
@@ -119,7 +118,7 @@ export default function BubbleChart(props) {
             width={width}
             height={height}
             options={{
-              onHover(event, elements, chart) {
+              onHover(event, elements) {
                 if (elements.length > 0) {
                   const hovVal = elements[0].element["$context"].raw.r;
                   if (hovVal !== hoverState?.hovered?.value) {

@@ -1,8 +1,8 @@
+import { useContainerDimensions } from "@/app/lib/useContainerDimensions";
 import * as d3 from "d3";
+import { extent, scaleSqrt } from "d3";
 import { useEffect, useRef, useState } from "react";
 import { Node } from "./data";
-import { scaleSqrt, extent } from "d3";
-import { useContainerDimensions } from "@/app/lib/useContainerDimensions";
 
 const BUBBLE_MIN_SIZE = 4;
 const BUBBLE_MAX_SIZE = 80;
@@ -49,7 +49,6 @@ export const CirclePacking = ({ data }: CirclePackingProps) => {
 
   useEffect(() => {
     // set dimension of the canvas element
-    const canvas = canvasRef.current;
     if (width === 0 || height === 0) {
       return;
     }

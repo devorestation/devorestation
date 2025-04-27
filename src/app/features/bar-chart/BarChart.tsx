@@ -9,7 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppSelector } from "@/lib/hooks";
 import { selectDME } from "@/lib/reforestation.slice";
 import { useHoverState } from "@/app/hover.contex";
 
