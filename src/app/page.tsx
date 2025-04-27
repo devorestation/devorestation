@@ -1,12 +1,11 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import BarChart from "./features/bar-chart/BarChart";
-import BubbleChart, { MyComponent } from "./features/bubble-chart/BubbleChart";
-import DataTable from "./features/data-table/DataTable";
-import MyForceGraph from "./features/force-graph/MyForceGraph";
-import Slider from "./features/Slider/Slider";
 import { selectData, selectDME, setDME } from "@/lib/reforestation.slice";
+import BarChart from "./features/bar-chart/BarChart";
+import BubbleChart from "./features/bubble-chart/BubbleChart";
+import DataTable from "./features/data-table/DataTable";
+import Slider from "./features/Slider/Slider";
 
 export default function Home() {
   const dispatch = useAppDispatch();

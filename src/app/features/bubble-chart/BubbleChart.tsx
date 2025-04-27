@@ -186,24 +186,3 @@ export default function BubbleChart(props) {
     </>
   );
 }
-
-export function MyComponent({ data }) {
-  const [localData, setLocalData] = useState(data);
-
-  const prevDataRef = useRef(data);
-
-  useEffect(() => {
-    if (!equal(prevDataRef.current, data)) {
-      console.log("DIFF", prevDataRef.current, data);
-
-      setLocalData(data);
-      prevDataRef.current = data;
-    }
-  }, [data]);
-
-  return (
-    <div>
-      <pre>{JSON.stringify(localData, null, 2)}</pre>
-    </div>
-  );
-}
